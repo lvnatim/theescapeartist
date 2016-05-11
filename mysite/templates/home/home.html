@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block CONTENT %}
+
+<div class="container">
+  <div style="margin-top:20px;margin-bottom:60px;"class="row">
+    <div class="col-md-12">
+      <img src="{{post.img_path}}" class="img-responsive center-block"/>
+    </div>
+  </div>
+
+  <div style="margin-bottom:30px;" class="row">
+    <div class="col-md-12">
+      <h1> {{post.title}} </h1>
+      <h5> {{post.date}} <h5>
+    </div>
+  </div>
+
+
+  <div style="margin-bottom:30px;"class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <p>
+        {{post.text|linebreaksbr}}
+      </p>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <nav style="text-align:center;">
+      <ul class="pagination">
+        <li>
+        </li>
+        <li><a href="{% url 'home:homeslide' num=0 %}">1</a></li>
+        <li><a href="{% url 'home:homeslide' num=1 %}">2</a></li>
+        <li><a href="{% url 'home:homeslide' num=2 %}">3</a></li>
+        <li><a href="{% url 'home:homeslide' num=3 %}">4</a></li>
+        <li><a href="{% url 'home:homeslide' num=4 %}">5</a></li>
+        <li>
+          <a href="{% url 'blog:blog' %}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,67 @@
+{% load static %}
+
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Taskalot - Get your stuff done!</title>
+    <script src="{% static 'js/jquery-2.2.3.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    {% block head_block %}
+    {% endblock %}
+  </head>
+
+  <body>
+  {% block TASKBAR %}
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a style="font-size:14px;" class="nav-button" href="{% url 'home:home' %}">home</a></li>
+            <li><a style="font-size:14px;" class="nav-button" href="{% url 'about:about' %}">about</a></li>
+            <li><a style="font-size:14px;" class="nav-button" href="{% url 'blog:blog' %}">blog</a></li>
+            <li><a style="font-size:14px;" class="nav-button" href="{% url 'guides:guides' %}">guides</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input style="font-family:futura;" type="text" class="form-control" placeholder="search">
+              </div>
+              <button type="submit" class="btn-custom"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </form>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  {% endblock %}
+
+  {% block BANNER %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <img src="{% static 'img/banner.png' %}" class="img-responsive center-block"/>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
+
+  {% block CONTENT %}
+  {% endblock %}
+
+  {%block CREDITS%}
+
+    <div class="row">
+      <div style="margin-top:30px; text-align:center;" class="col-md-12">
+        <p style="font-size:12px;"><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> 2016 TLu</p>
+      </div>
+    </div>
+  {%endblock%}
+
+  </body>
+</html>

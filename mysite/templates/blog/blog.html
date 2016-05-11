@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block head_block %}
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'blog/css/reset.css'%}"> <!-- CSS reset -->
+	<link rel="stylesheet" href="{% static 'blog/css/style.css'%}"> <!-- Resource style -->
+	<script src="{% static 'blog/js/modernizr.js'%}"></script> <!-- Modernizr -->
+{% endblock %}
+
+{% block CONTENT %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+<section class="cd-horizontal-timeline">
+	<div class="timeline">
+		<div class="events-wrapper">
+			<div class="events">
+				<ol>
+					<li><a href="#0" data-date="{{firstpost.date}}" class="selected"></a></li>
+					{% for post in posts %}
+					<li><a href="#0" data-date="{{post.date}}"></a></li>
+					{% endfor %}
+				</ol>
+
+				<span class="filling-line" aria-hidden="true"></span>
+			</div> <!-- .events -->
+		</div> <!-- .events-wrapper -->
+
+
+		<ul class="cd-timeline-navigation">
+			<li><a href="#0" class="prev inactive">Prev</a></li>
+			<li><a href="#0" class="next">Next</a></li>
+		</ul> <!-- .cd-timeline-navigation -->
+	</div> <!-- .timeline -->
+
+	<div class="events-content">
+		<ol>
+			<li class="selected" data-date="{{firstpost.date}}">
+
+				<div style="margin-top:20px;margin-bottom:30px;"class="row">
+			    <div class="col-md-12">
+			      <img src="{{firstpost.img_path}}" class="img-responsive center-block"/>
+			    </div>
+			  </div>
+			  <div style="margin-bottom:30px;" class="row">
+			    <div class="col-md-12">
+			      <h1> {{firstpost.title}} </h1>
+			      <h5> {{firstpost.date}} <h5>
+			    </div>
+			  </div>
+			  <div style="margin-bottom:30px;"class="row">
+			    <div class="col-md-1"></div>
+			    <div class="col-md-10">
+			      <p>
+			        {{firstpost.text|linebreaksbr}}
+			      </p>
+			    </div>
+			    <div class="col-md-1"></div>
+			  </div>
+
+			</li>
+
+			{% for post in posts %}
+
+			<li data-date="{{post.date}}">
+
+				<div style="margin-top:20px;margin-bottom:30px;"class="row">
+			    <div class="col-md-12">
+			      <img src="{{ post.img_path }}" class="img-responsive center-block"/>
+			    </div>
+			  </div>
+			  <div style="margin-bottom:30px;" class="row">
+			    <div class="col-md-12">
+			      <h1> {{post.title}} </h1>
+			      <h5> {{post.date}} <h5>
+			    </div>
+			  </div>
+			  <div style="margin-bottom:30px;"class="row">
+			    <div class="col-md-1"></div>
+			    <div class="col-md-10">
+			      <p>
+			        {{post.text|linebreaksbr}}
+			      </p>
+			    </div>
+			    <div class="col-md-1"></div>
+			  </div>
+
+			</li>
+			{% endfor %}
+
+		</ol>
+	</div> <!-- .events-content -->
+</section>
+
+</div>
+</div>
+</div>
+
+<script src="{% static 'blog/js/jquery-2.1.4.js'%}"></script>
+<script src="{% static 'blog/js/jquery.mobile.custom.min.js'%}"></script>
+<script src="{% static 'blog/js/main.js'%}"></script> <!-- Resource jQuery -->
+
+{% endblock %}
