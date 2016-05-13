@@ -28,9 +28,9 @@ STATIC_PATH = os.path.join(PROJECT_PATH,'static')
 SECRET_KEY = 'zi3k)n((3o@s0o4uikj8q)cdfwtjthlby6#59sb#ljy6i(91r('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["theescapeartist.ca"]
+ALLOWED_HOSTS = ["www.theescapeartist.ca",""]
 
 
 # Application definition
